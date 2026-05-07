@@ -388,3 +388,30 @@ print("Task 1 completed. Deliverables:")
 print(" - Autoencoder implementation code (this notebook)")
 print(" - Reconstruction loss curve: plots/loss_curve.png")
 print(f" - {NUM_GEN_SAMPLES} generated MIDI samples: generated_midi/ directory")
+
+----------
+
+import os
+from IPython.display import FileLink, display
+
+# List all files you want to download
+files_to_download = [
+    "model_task1.pt",
+    "pianoroll_train.npy",
+    "pianoroll_validation.npy",
+    "pianoroll_test.npy",
+    "generated_midi/generated_sample_1.mid",
+    "generated_midi/generated_sample_2.mid",
+    "generated_midi/generated_sample_3.mid",
+    "generated_midi/generated_sample_4.mid",
+    "generated_midi/generated_sample_5.mid",
+    "plots/loss_curve.png",
+    "plots/duration_histogram.png",
+    "plots/pitch_distribution.png"
+]
+
+for f in files_to_download:
+    if os.path.exists(f):
+        display(FileLink(f))
+    else:
+        print(f"Not found: {f}")
