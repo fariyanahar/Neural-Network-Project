@@ -234,7 +234,7 @@ class TransformerWithRotary(nn.Module):
         self.pos_embed = nn.Parameter(torch.randn(1, max_len, d_model) * 0.02)
         self.max_len = max_len
 
-        # Use TransformerDecoderLayer with custom attention to apply rotary
+        # TransformerDecoderLayer with custom attention to apply rotary
         decoder_layer = nn.TransformerDecoderLayer(d_model, nhead, dim_feedforward=4*d_model,
                                                    dropout=dropout, batch_first=True)
         self.layers = nn.ModuleList([decoder_layer for _ in range(num_layers)])
@@ -251,12 +251,6 @@ class TransformerWithRotary(nn.Module):
         # Causal mask (upper triangular)
         causal_mask = torch.triu(torch.ones(T, T, device=tokens.device) * float('-inf'), diagonal=1)
 
-        # Apply rotary to query and key in each layer (simplified: we'll use standard decoder but modify)
-        # Since PyTorch's TransformerDecoder does not easily accept rotary, we implement custom attention.
-        # For brevity, we use standard decoder with absolute positions + mask – but we add a learnable
-        # positional embedding (simpler). To incorporate rotary, we would need to rewrite attention.
-        # However, adding absolute positional embedding helps, but relative is better. Given time,
-        # we'll use a learnable positional embedding and rely on the causal mask.
         pos_emb = self.pos_embed[:, :T, :]
         x = x + pos_emb
 
