@@ -67,7 +67,7 @@ We evaluated generated music using:
 - RLHF further enhanced musical quality and human preference alignment  
 
 ## MIDI Files
-Drive Link - https://drive.google.com/drive/folders/1PLj4sEb0cWGmNKNb-xzJX5BLAqOZDkAz?usp=drive_link
+Drive Link - https://drive.google.com/drive/folders/1PLj4sEb0cWGmNKNb-xzJX5BLAqOZDkAz?usp=sharing
 
 
 ## Keywords
