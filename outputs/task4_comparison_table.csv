@@ -1,7 +1,0 @@
-Model,Loss,Perplexity,Rhythm Diversity,Human Score (1-5),Genre Control
-Random Generator,—,—,0,1.2,None
-Markov Chain,—,—,0.330,2.7,Weak
-Task 1: Autoencoder,0.0186,—,0.350,3.2,Single Genre
-Task 2: VAE,0.0354,—,0.333,3.7,Moderate
-Task 3: Transformer,—,9.78,0.018,4.4,Strong
-Task 4: RLHF-Tuned,—,10.30,0.089,4.7,Strongest
